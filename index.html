@@ -618,6 +618,51 @@
 
 .hero-button:hover {
   transform: translateY(-3px);
+}
+  .stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 600px;
+  margin: 25px auto;
+}
+
+.stat-card {
+  padding: 18px 10px;
+  border-radius: 15px;
+  background: #f3eee4;
+  transition: 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card strong {
+  display: block;
+  color: #a77c2d;
+  font-size: 25px;
+}
+
+.stat-card span {
+  display: block;
+  margin-top: 5px;
+  color: #6e6c68;
+  font-size: 13px;
+}
+
+.dark-mode .stat-card {
+  background: #2a2b30;
+}
+
+.dark-mode .stat-card span {
+  color: #b8b6b0;
+}
+
+@media (max-width: 600px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
 }  
   </style>
 </head>
@@ -674,7 +719,22 @@
 
         <p class="bio">
           هاد الموقع هو أول مشروع شخصي ديالي. مرحباً بالجميع.
-        </p>
+        </p><div class="stats">
+  <div class="stat-card">
+    <strong>04</strong>
+    <span>مشاريع</span>
+  </div>
+
+  <div class="stat-card">
+    <strong>03</strong>
+    <span>مهارات</span>
+  </div>
+
+  <div class="stat-card">
+    <strong>01</strong>
+    <span>موقع شخصي</span>
+  </div>
+</div>
 
        <a class="cv-button" href="cv.pdf" target="_blank">
   📄 شوف السيرة الذاتية ديالي
