@@ -10,91 +10,42 @@
        NAVIGATION
     ========================= */
     .navbar {
-      position: sticky;
-      top: 15px;
-      z-index: 100;
-      width: min(850px, 95%);
-      margin: 0 auto 25px;
-      padding: 12px 18px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      border: 1px solid rgba(0, 170, 255, 0.25);
-      border-radius: 18px;
-      background: rgba(5, 15, 32, 0.65);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      box-shadow: 0 0 30px rgba(0, 170, 255, 0.08);
+      position: sticky; top: 15px; z-index: 100; width: min(850px, 95%);
+      margin: 0 auto 25px; padding: 12px 18px; display: flex; justify-content: center;
+      gap: 10px; flex-wrap: wrap; border: 1px solid rgba(0, 170, 255, 0.25);
+      border-radius: 18px; background: rgba(5, 15, 32, 0.65); backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px); box-shadow: 0 0 30px rgba(0, 170, 255, 0.08);
     }
     .navbar a {
-      padding: 10px 16px;
-      border-radius: 10px;
-      color: #9db0c7;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s ease;
+      padding: 10px 16px; border-radius: 10px; color: #9db0c7; text-decoration: none;
+      font-weight: bold; transition: 0.3s ease;
     }
     .navbar a:hover {
-      color: white;
-      background: rgba(0, 170, 255, 0.12);
-      box-shadow: 0 0 12px rgba(0, 170, 255, 0.35);
-      transform: translateY(-2px);
+      color: white; background: rgba(0, 170, 255, 0.12); box-shadow: 0 0 12px rgba(0, 170, 255, 0.35); transform: translateY(-2px);
     }
     .back-top {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 48px;
-      height: 48px;
-      display: none; /* مخفي فاللول */
-      place-items: center;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 170, 255, 0.4);
-      background: rgba(5, 15, 32, 0.75);
-      color: #38cfff;
-      text-decoration: none;
-      font-size: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 15px rgba(0, 170, 255, 0.25);
-      transition: 0.3s;
-      z-index: 999;
+      position: fixed; bottom: 25px; right: 25px; width: 48px; height: 48px; display: none;
+      place-items: center; border-radius: 50%; border: 1px solid rgba(0, 170, 255, 0.4);
+      background: rgba(5, 15, 32, 0.75); color: #38cfff; text-decoration: none; font-size: 20px;
+      backdrop-filter: blur(10px); box-shadow: 0 0 15px rgba(0, 170, 255, 0.25); transition: 0.3s; z-index: 999;
     }
-    .back-top:hover {
-      transform: translateY(-5px);
-      background: #00aaff;
-      color: white;
-      box-shadow: 0 0 25px rgba(0, 170, 255, 0.7);
-    }
+    .back-top:hover { transform: translateY(-5px); background: #00aaff; color: white; box-shadow: 0 0 25px rgba(0, 170, 255, 0.7); }
 
     * { box-sizing: border-box; }
     :root {
-      --navy: #050b1a;
-      --navy-2: #081226;
-      --card: rgba(10, 24, 48, 0.58);
-      --blue: #00aaff;
-      --blue-light: #38cfff;
-      --text: #f4f9ff;
-      --muted: #9db0c7;
-      --border: rgba(0, 170, 255, 0.22);
+      --navy: #050b1a; --card: rgba(10, 24, 48, 0.58); --blue: #00aaff;
+      --blue-light: #38cfff; --text: #f4f9ff; --muted: #9db0c7; --border: rgba(0, 170, 255, 0.22);
     }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+      margin: 0; font-family: Arial, sans-serif;
       background: radial-gradient(circle at 15% 20%, rgba(0, 170, 255, 0.12), transparent 30%), radial-gradient(circle at 85% 70%, rgba(0, 100, 255, 0.10), transparent 30%), var(--navy);
-      color: var(--text);
-      min-height: 100vh;
-      transition: background 1s ease;
+      color: var(--text); min-height: 100vh; transition: background 1s ease; /* زدت transition */
     }
     body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
+      content: ""; position: fixed; inset: 0; pointer-events: none;
       background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-      background-size: 45px 45px;
-      mask-image: linear-gradient(to bottom, black, transparent);
+      background-size: 45px 45px; mask-image: linear-gradient(to bottom, black, transparent);
     }
     button, input { font: inherit; }
 
@@ -319,31 +270,24 @@
       const button = document.querySelector(".theme-button");
       button.textContent = document.body.classList.contains("dark-mode") ? "☀️ الوضع العادي" : "🌙 الوضع الليلي";
     }
-
     function startDelivery() {
       const truck = document.getElementById("deliveryTruck");
       const message = document.getElementById("deliveryMessage");
-      truck.classList.remove("go");
-      void truck.offsetWidth;
-      truck.classList.add("go");
+      truck.classList.remove("go"); void truck.offsetWidth; truck.classList.add("go");
       message.textContent = "🚚 الشاحنة فطريقها!";
     }
-
     function pullCord() {
       document.getElementById("nameCard").classList.add("show");
-      // تأثير الضو + الخيط كينزل
       document.querySelector(".lamp-shade").style.boxShadow = "0 0 80px 30px rgba(0, 170, 255, 0.7)";
       document.querySelector(".cord-handle").style.transform = "translateY(10px)";
       document.body.style.background = "radial-gradient(circle at center, rgba(0, 110, 255, 0.12), transparent 45%), #f0f8ff";
     }
-
     function typeWriter(text, i = 0) {
       if (i < text.length) {
         document.getElementById("greeting").innerHTML += text.charAt(i);
         setTimeout(() => typeWriter(text, i + 1), 50);
       }
     }
-
     function enterSite(event) {
       event.preventDefault();
       const name = document.getElementById("visitorName").value.trim();
@@ -351,54 +295,31 @@
       typeWriter("أهلاً " + name + "، مرحباً بك فموقعي ✦");
       document.getElementById("introView").classList.add("hidden");
       document.getElementById("portfolioView").classList.add("show");
-      startCounter(); // بدا العداد
+      startCounter();
     }
-
     function showPhotoFallback() {
       document.querySelector(".profile-photo").style.display = "none";
       document.getElementById("photoFallback").style.display = "grid";
     }
-
-    // عداد الأرقام
     function startCounter() {
       const counters = document.querySelectorAll('.stat-card strong');
       counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        let count = 0;
-        const speed = 200 / target;
-        const updateCount = () => {
-          if(count < target) {
-            count++;
-            counter.innerText = count;
-            setTimeout(updateCount, speed);
-          }
-        }
+        const target = +counter.getAttribute('data-target'); let count = 0; const speed = 200 / target;
+        const updateCount = () => { if(count < target) { count++; counter.innerText = count; setTimeout(updateCount, speed); } }
         updateCount();
       });
     }
-
-    // زر الرجوع للفوق
     window.addEventListener('scroll', () => {
       const backTop = document.querySelector('.back-top');
-      if (window.scrollY > 300) {
-        backTop.style.display = 'grid';
-      } else {
-        backTop.style.display = 'none';
-      }
+      if (window.scrollY > 300) { backTop.style.display = 'grid'; } else { backTop.style.display = 'none'; }
     });
-
-    /* WOW EFFECT */
     document.addEventListener("mousemove", function(e) {
       const cards = document.querySelectorAll(".skill-card, .project-card, .stat-card");
       cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top;
         if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
           card.style.boxShadow = "0 0 25px rgba(0,140,255,0.35)";
-        } else {
-          card.style.boxShadow = "";
-        }
+        } else { card.style.boxShadow = ""; }
       });
     });
   </script>
