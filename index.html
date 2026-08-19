@@ -458,6 +458,42 @@
       line-height: 1.6;
       font-size: 14px;
     }
+        .theme-button {
+      margin-bottom: 20px;
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 10px;
+      background: #1d1e22;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .theme-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .dark-mode .portfolio-view {
+      background: #151719;
+      color: #f5f2ec;
+    }
+
+    .dark-mode .profile-card {
+      background: #202126;
+      color: #f5f2ec;
+    }
+
+    .dark-mode .bio,
+    .dark-mode .project-card p,
+    .dark-mode .skill-card p {
+      color: #b8b6b0;
+    }
+
+    .dark-mode .project-card,
+    .dark-mode .skill-card {
+      background: #2a2b30;
+      color: #f5f2ec;
+    }
   </style>
 </head>
 
@@ -489,6 +525,7 @@
     </section>
 
     <section class="portfolio-view" id="portfolioView">
+      <button class="theme-button" onclick="toggleTheme()">🌙 الوضع الليلي</button>
       <article class="profile-card">
         <img class="profile-photo" src="photo.jpg.jpeg" alt="صورتي" onerror="showPhotoFallback()">
 
@@ -580,6 +617,17 @@
   </main>
 
   <script>
+        function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+
+      const button = document.querySelector(".theme-button");
+
+      if (document.body.classList.contains("dark-mode")) {
+        button.textContent = "☀️ الوضع العادي";
+      } else {
+        button.textContent = "🌙 الوضع الليلي";
+      }
+    }
     function pullCord() {
       document.getElementById("nameCard").classList.add("show");
     }
