@@ -5,7 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>موقع Sohayb الشخصي</title>
+  
+/* =========================
+   NAVIGATION
+========================= */
 
+.navbar {
+  position: sticky;
+  top: 15px;
+  z-index: 100;
+  width: min(850px, 95%);
+  margin: 0 auto 25px;
+  padding: 12px 18px;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  border: 1px solid rgba(0, 170, 255, 0.25);
+  border-radius: 18px;
+
+  background: rgba(5, 15, 32, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.08);
+}
+
+.navbar a {
+  padding: 10px 16px;
+  border-radius: 10px;
+
+  color: #9db0c7;
+  text-decoration: none;
+  font-weight: bold;
+
+  transition: 0.3s ease;
+}
+
+.navbar a:hover {
+  color: white;
+  background: rgba(0, 170, 255, 0.12);
+
+  box-shadow:
+    0 0 12px rgba(0, 170, 255, 0.35);
+
+  transform: translateY(-2px);
+}
+
+.back-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 170, 255, 0.4);
+
+  background: rgba(5, 15, 32, 0.75);
+  color: #38cfff;
+
+  text-decoration: none;
+  font-size: 20px;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 15px rgba(0, 170, 255, 0.25);
+
+  transition: 0.3s;
+}
+
+.back-top:hover {
+  transform: translateY(-5px);
+
+  background: #00aaff;
+  color: white;
+
+  box-shadow:
+    0 0 25px rgba(0, 170, 255, 0.7);
+}
   <style>
     * {
       box-sizing: border-box;
@@ -710,6 +795,17 @@
 
     <!-- PORTFOLIO -->
     <section class="portfolio-view" id="portfolioView">
+      <nav class="navbar">
+
+  <a href="#">🏠 الرئيسية</a>
+
+  <a href="#skills">💻 المهارات</a>
+
+  <a href="#projects">🚀 المشاريع</a>
+
+  <a href="#contact">📩 تواصل معي</a>
+
+</nav>
 
       <button class="theme-button" onclick="toggleTheme()">
         🌙 الوضع الليلي
@@ -798,7 +894,7 @@
 
 
         <!-- SKILLS -->
-        <section class="skills-section">
+        <section class="skills-section" id="skills">
 
           <p class="section-label">
             المهارات ديالي
@@ -837,7 +933,7 @@
 
 
         <!-- CONTACT -->
-        <section class="contact-section">
+        <section class="contact-section" id="contact">
 
           <p class="section-label">
             تواصل معي
@@ -986,6 +1082,7 @@
 
     </section>
 
+    <a href="#" class="back-top">↑</a>
   </main>
 
 
