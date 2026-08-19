@@ -160,7 +160,7 @@
       cursor: pointer;
     }
 
-    /* الموقع الشخصي */
+        /* الموقع الشخصي */
     .portfolio-view {
       display: none;
       min-height: 100vh;
@@ -175,7 +175,7 @@
     }
 
     .profile-card {
-      width: min(560px, 100%);
+      width: min(900px, 100%);
       padding: 42px 30px;
       border-radius: 26px;
       background: white;
@@ -227,6 +227,102 @@
     }
 
     .contact-section,
+    .projects-section {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid #e1ddd4;
+    }
+
+    .section-label {
+      margin: 0;
+      color: #a77c2d;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .contact-section h3,
+    .projects-section h3 {
+      margin: 10px 0 18px;
+      font-size: 22px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .contact-link {
+      width: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .contact-icon {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .email {
+      background: #2563eb;
+    }
+
+    .email .contact-icon {
+      color: #2563eb;
+    }
+
+    .whatsapp {
+      background: #22c55e;
+    }
+
+    .whatsapp .contact-icon {
+      color: #22c55e;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .project-card {
+      padding: 18px;
+      border-radius: 14px;
+      background: #f3eee4;
+      color: #1a1b20;
+      text-align: right;
+      text-decoration: none;
+    }
+
+    .project-link:hover {
+      transform: translateY(-4px);
+    }
+
+    .project-card span {
+      color: #a77c2d;
+      font-weight: bold;
+    }
+
+    .project-card h4 {
+      margin: 9px 0;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: #6e6c68;
+      line-height: 1.6;
+      font-size: 14px;
+    }
     .projects-section {
       margin-top: 35px;
       padding-top: 25px;
