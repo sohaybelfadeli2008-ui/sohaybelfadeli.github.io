@@ -575,6 +575,49 @@
   .delivery-button {
     width: 100%;
   }
+} 
+  .hero-title {
+  margin: 10px 0 5px;
+  color: #a77c2d;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 10px auto;
+  color: #6e6c68;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.hero-button.primary {
+  background: #1d1e22;
+  color: white;
+}
+
+.hero-button.secondary {
+  border: 2px solid #1d1e22;
+  color: #1d1e22;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
 }  
   </style>
 </head>
@@ -618,6 +661,16 @@
         <p class="greeting" id="greeting"></p>
 
         <h2>I'M Mr Sohayb</h2>
+        <p class="hero-title">مطور ويب مبتدئ 💻</p>
+
+<p class="hero-description">
+  كنـتعلم HTML وCSS وJavaScript، وكنبني مشاريع حقيقية خطوة بخطوة.
+</p>
+
+<div class="hero-buttons">
+  <a href="#projects" class="hero-button primary">🚀 شوف مشاريعي</a>
+  <a href="cv.pdf" target="_blank" class="hero-button secondary">📄 شوف CV</a>
+</div>
 
         <p class="bio">
           هاد الموقع هو أول مشروع شخصي ديالي. مرحباً بالجميع.
@@ -674,7 +727,7 @@
   <p id="deliveryMessage"></p>
 </div>
 
-        <section class="projects-section">
+       <section class="projects-section" id="projects">
           <p class="section-label">مشاريعي</p>
           <h3>حوايج كنخدم عليهم.</h3>
 
