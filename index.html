@@ -689,6 +689,18 @@
         button.textContent = "🌙 الوضع الليلي";
       }
     }
+    function startDelivery() {
+  const truck = document.getElementById("deliveryTruck");
+  const message = document.getElementById("deliveryMessage");
+
+  truck.classList.remove("go");
+
+  void truck.offsetWidth;
+
+  truck.classList.add("go");
+
+  message.textContent = "🚚 الشاحنة فطريقها!";
+}
     function pullCord() {
       document.getElementById("nameCard").classList.add("show");
     }
