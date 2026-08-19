@@ -289,10 +289,49 @@
       color: #22c55e;
     }
 
+        .skills-section {
+      margin-top: 35px;
+      padding-top: 25px;
+      border-top: 1px solid #e1ddd4;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .skill-card {
+      padding: 20px 15px;
+      border-radius: 16px;
+      background: #f3eee4;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(41, 35, 25, 0.12);
+    }
+
+    .skill-card span {
+      color: #a77c2d;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .skill-card p {
+      margin: 8px 0 0;
+      color: #6e6c68;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+    }
     }
 
     .project-card {
