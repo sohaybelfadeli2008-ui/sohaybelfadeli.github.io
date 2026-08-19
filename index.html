@@ -494,6 +494,58 @@
       background: #2a2b30;
       color: #f5f2ec;
     }
+    .delivery-demo {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e1ddd4;
+  overflow: hidden;
+}
+
+.delivery-button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #e6bf68;
+  color: #241e13;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delivery-truck {
+  margin-top: 25px;
+  font-size: 45px;
+  transform: translateX(120%);
+  opacity: 0;
+}
+
+.delivery-truck.go {
+  animation: truckMove 3s ease forwards;
+}
+
+#deliveryMessage {
+  color: #a77c2d;
+  font-weight: bold;
+}
+
+@keyframes truckMove {
+  0% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+}
   </style>
 </head>
 
@@ -583,6 +635,14 @@
             </a>
           </div>
         </section>
+        <div class="delivery-demo">
+  <button class="delivery-button" onclick="startDelivery()">
+    🚚 جرّب الأنيميشن
+  </button>
+
+  <div class="delivery-truck" id="deliveryTruck">🚚</div>
+  <p id="deliveryMessage"></p>
+</div>
 
         <section class="projects-section">
           <p class="section-label">مشاريعي</p>
@@ -617,6 +677,7 @@
   </main>
 
   <script>
+    
         function toggleTheme() {
       document.body.classList.toggle("dark-mode");
 
