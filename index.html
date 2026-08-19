@@ -741,6 +741,128 @@
         font-size: 28px;
       }
     }
+    /* ===== WOW EFFECTS ===== */
+
+body {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 110, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(0, 70, 255, 0.10), transparent 30%),
+    #050b18;
+}
+
+/* Glass Card */
+.profile-card,
+.name-card,
+.skill-card,
+.project-card,
+.stat-card {
+  background: rgba(10, 22, 42, 0.65) !important;
+  border: 1px solid rgba(0, 140, 255, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Electric Blue */
+.greeting,
+.section-label,
+.hero-title,
+.project-card span,
+.skill-card span,
+.stat-card strong {
+  color: #00aaff !important;
+}
+
+/* Glow Buttons */
+.hero-button.primary,
+.cv-button,
+.enter-button,
+.delivery-button,
+.theme-button {
+  background: #006eff !important;
+  color: white !important;
+  box-shadow:
+    0 0 10px rgba(0, 110, 255, 0.5),
+    0 0 30px rgba(0, 110, 255, 0.2);
+  transition: 0.3s ease;
+}
+
+.hero-button.primary:hover,
+.cv-button:hover,
+.enter-button:hover,
+.delivery-button:hover,
+.theme-button:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 15px rgba(0, 170, 255, 0.8),
+    0 0 40px rgba(0, 110, 255, 0.4);
+}
+
+/* Hover Cards */
+.skill-card,
+.project-card,
+.stat-card {
+  transition: 0.35s ease;
+}
+
+.skill-card:hover,
+.project-card:hover,
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: #008cff;
+  box-shadow:
+    0 0 20px rgba(0, 140, 255, 0.25);
+}
+
+/* Profile Photo Glow */
+.profile-photo,
+.photo-fallback {
+  border-color: #008cff !important;
+  box-shadow:
+    0 0 15px rgba(0, 140, 255, 0.6),
+    0 0 40px rgba(0, 110, 255, 0.2);
+}
+
+/* Intro */
+.intro-view {
+  background:
+    radial-gradient(circle at center, rgba(0, 110, 255, 0.12), transparent 45%),
+    #050b18;
+}
+
+/* Lamp Blue Glow */
+.lamp-shade {
+  border-color: #008cff !important;
+  box-shadow:
+    0 0 20px rgba(0, 140, 255, 0.35);
+}
+
+/* Input */
+input:focus {
+  outline: none;
+  border-color: #008cff;
+  box-shadow: 0 0 15px rgba(0, 140, 255, 0.35);
+}
+
+/* Links */
+.contact-link {
+  transition: 0.3s ease;
+}
+
+.contact-link:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 140, 255, 0.3);
+}
+
+/* Smooth page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background: #008cff;
+  color: white;
+}
   </style>
 </head>
 
@@ -1187,6 +1309,32 @@
 
     }
 
+   /* ===== WOW EFFECT ===== */
+
+document.addEventListener("mousemove", function(e) {
+  const cards = document.querySelectorAll(
+    ".skill-card, .project-card, .stat-card"
+  );
+
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if (
+      x >= 0 &&
+      x <= rect.width &&
+      y >= 0 &&
+      y <= rect.height
+    ) {
+      card.style.boxShadow =
+        "0 0 25px rgba(0,140,255,0.35)";
+    } else {
+      card.style.boxShadow = "";
+    }
+  });
+}); 
   </script>
 
 </body>
