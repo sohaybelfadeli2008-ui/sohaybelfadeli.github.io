@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolioصهيب المطور</title>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+  :root{ --bg:#0a0a0a; --text:#fff; --accent:#00f5ff; --card:rgba(255,255,255,0.05); --whatsapp:#25D366; }
+  body.dark{ --bg:#f0f0f0; --text:#111; --accent:#0077ff; --card:rgba(0,0,0,0.05); }
+  *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+  body{ font-family:'Cairo', sans-serif; background:var(--bg); color:var(--text); transition:0.5s; overflow-x:hidden; }
+  
+  #particles-js{ position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+  .sidebar{ position:fixed;top:0;right:-80px;height:100vh;width:80px; background:var(--card);backdrop-filter:blur(20px); border-left:2px solid var(--accent);z-index:99; display:flex;flex-direction:column;align-items:center;padding:20px 0;gap:30px; transition:0.4s ease; }
+  body:hover .sidebar{ right:0; }
+  .profile-pic{ width:60px;height:60px;border-radius:50%; border:3px solid var(--accent);overflow:hidden; animation:rotate 10s linear infinite;cursor:pointer; box-shadow:0 0 20px var(--accent); }
+  .profile-pic img{width:100%;height:100%;object-fit:cover}
+  @keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  .nav-link{ writing-mode:vertical-rl;text-orientation:mixed; color:var(--accent);text-decoration:none;font-weight:700; padding:10px;transition:0.3s;border-radius:10px; }
+  .nav-link:hover{background:var(--accent);color:#000;transform:translateX(-5px)}
+  .hamburger{ display:none;position:fixed;top:20px;right:20px;z-index:101; background:var(--card);border:2px solid var(--accent); padding:10px;border-radius:10px;color:var(--accent); cursor:pointer;font-size:1.8rem;backdrop-filter:blur(10px); }
+  .sidebar.active{ right:0; }
+
+  .social-float{ position:fixed;bottom:30px;left:30px;z-index:100; display:flex;flex-direction:column;gap:15px; }
+  .social-btn{ width:55px;height:55px;border-radius:50%; display:flex;align-items:center;justify-content:center; text-decoration:none; box-shadow:0 5px 20px rgba(0,0,0,0.3); transition:0.3s;animation:bounce 2s infinite; }
+  .social-btn:hover{transform:scale(1.1)}
+  .whatsapp{background:var(--whatsapp)} .email{background:var(--accent)}
+  .social-btn svg{width:28px;height:28px;fill:#fff}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  #toTop{ position:fixed;bottom:30px;right:30px;z-index:100; background:var(--accent);color:#000;width:50px;height:50px; border-radius:50%;border:none;font-size:1.5rem;cursor:pointer; opacity:0;visibility:hidden;transition:0.3s; }
+  #toTop.show{opacity:1;visibility:visible}
+  .btns{position:fixed;top:20px;left:20px;z-index:100;display:flex;gap:10px}
+  .btn{ background:var(--card);border:2px solid var(--accent); padding:10px 15px;border-radius:50px;color:var(--accent); cursor:pointer;font-size:1.1rem;font-weight:700;backdrop-filter:blur(10px);text-decoration:none;display:inline-block }
+  .btn:hover{background:var(--accent);color:#000}
+  
+  .hero{ height:100vh; display:flex;align-items:center;justify-content:center; padding:0 10%; background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; }
+  @keyframes gradient { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
+  .hero-text h1{font-size:4rem;margin-bottom:20px;color:#fff;text-align:center}
+  .hero-text p{font-size:1.5rem;color:#eee; min-height:40px;text-align:center}
+  section{padding:100px 10%}
+  h2{font-size:3rem;text-align:center;margin-bottom:50px;color:var(--accent)}
+  .about-box{ background:var(--card);padding:40px;border-radius:20px; border:1px solid var(--accent);backdrop-filter:blur(20px); font-size:1.3rem;line-height:2;text-align:center; }
+  
+  .cv-container{ background:var(--card); padding:20px; border-radius:20px; border:2px solid var(--accent); backdrop-filter:blur(20px); }
+  .cv-viewer{ width:100%; height:700px; border:none; border-radius:15px; margin:20px 0; }
+  .cv-buttons{ display:flex; gap:15px; justify-content:center; flex-wrap:wrap; }
+  
+  #portfolio,#clients,#testimonials{background:var(--card)}
+  .gallery{ display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;margin-top:50px }
+  .project{ background:var(--bg);border-radius:15px;overflow:hidden; border:2px solid transparent;transition: all 0.4s ease; position:relative; }
+  .project:hover{ border-color:var(--accent); box-shadow: 0 20px 40px rgba(0,245,255,0.3); transform:translateY(-10px) }
+  .project img{ width:100%;height:250px;object-fit:cover; cursor:pointer; }
+  .project h3{padding:20px;text-align:center;font-size:1.5rem}
+  .project-tag{position:absolute;top:15px;left:15px;background:var(--accent);color:#000;padding:5px 15px;border-radius:20px;font-weight:900;font-size:0.9rem}
+  .project a{display:block;text-decoration:none;color:inherit}
+  
+  .lightbox{ position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1000; display:none;align-items:center;justify-content:center; }
+  .lightbox img{max-width:90%;max-height:80%;border-radius:20px}
+  .lightbox .close{position:absolute;top:30px;right:40px;font-size:3rem;color:#fff;cursor:pointer}
+  
+  .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+  .testi-card{background:var(--bg);padding:30px;border-radius:20px;border:1px solid var(--accent)}
+  
+  #contact form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:20px}
+  #contact input,#contact textarea{ background:var(--card);border:2px solid var(--accent);border-radius:10px; padding:15px;font-size:1.2rem;color:var(--text);font-family:'Cairo'; outline:none }
+  #contact input:focus,#contact textarea:focus{border-color:var(--accent); box-shadow:0 0 15px var(--accent)}
+  #contact button{ background:var(--accent);color:#000;border:none;padding:15px; border-radius:10px;font-size:1.3rem;font-weight:900;cursor:pointer; }
+  
+  @media(max-width:900px){
+    .sidebar{ right:-100%; width:250px; }
+    .nav-link{writing-mode:horizontal-tb;text-align:center;width:100%}
+    .hamburger{display:block;}
+    body:hover .sidebar{ right:-100%; }
+    .cv-viewer{height:500px}
+  }
+</style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+<div class="hamburger" id="hamburger">☰</div>
+
+<div class="sidebar" id="sidebar">
+  <a href="#cv" class="profile-pic"><img src="placehold.co.jpeg" alt="صورتي"></a>
+  <a href="#about" class="nav-link">من أنا</a>
+  <a href="#portfolio" class="nav-link">أعمالي</a>
+  <a href="#clients" class="nav-link">عملائي</a>
+  <a href="#testimonials" class="nav-link">آراء</a>
+  <a href="#contact" class="nav-link">تواصل</a>
+</div>
+
+<div class="btns">
+  <button class="btn" id="toggle">🌙</button>
+</div>
+
+<div class="social-float">
+  <a href="https://wa.me/212694313209" target="_blank" class="social-btn whatsapp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.67-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.271.296-1.043 1.02-1.043 2.487s1.068 2.881 1.219 3.079c.15.199 2.105 3.212 5.105 4.505.714.309 1.27.493 1.708.63.718.228 1.37.196 1.885.12.574-.17 1.758-.719 2.006-1.413.248-.695.248-1.291.173-1.414z"/></svg>
+  </a>
+  <a href="mailto:sohaybelfadeli2008@gmail.com" class="social-btn email">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+  </a>
+</div>
+
+<button id="toTop">↑</button>
+<div class="lightbox" id="lightbox"><span class="close">&times;</span><img id="lightboxImg"></div>
+
+<section class="hero">
+  <div class="hero-text" data-aos="fade-up"><h1>مرحبا بيكم</h1><p><span id="typed"></span></p></div>
+</section>
+
+<section id="cv" data-aos="fade-up">
+  <h2>السيرة الذاتية</h2>
+  <div class="cv-container">
+    <h3 style="text-align:center;margin-bottom:15px">صهيب المطور - مطور ويب</h3>
+    <iframe src="cv.pdf" class="cv-viewer"></iframe>
+    <div class="cv-buttons">
+      <a href="cv.pdf" download class="btn">⬇️ تحميل CV</a>
+      <a href="cv.pdf" target="_blank" class="btn">👁️ فتح فصفحة جديدة</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" data-aos="fade-up">
+  <h2>التعريف عني</h2>
+  <div class="about-box">السلام عليكم 👋<br>أنا صهيب.<br>متخصص فـ تصميم وتطوير: مواقع الشركات، المتاجر الإلكترونية، وتطبيقات الويب</div>
+</section>
+
+<section id="portfolio" data-aos="fade-up">
+  <h2>أعمالي - كليكي على المشروع باش تشوفو</h2>
+  <div class="gallery">
+    <div class="project"><span class="project-tag">موقع شركة</span><img src="صميم موقع شركة احترافي.jpeg"
+      " class="gallery-img"><h3>تصميم موقع شركة احترافي</h3></div>
+    <div class="project" data-aos-delay="100"><span class="project-tag">متجر إلكتروني</span><img src="متجر إلكتروني متكامل.jpeg" class="gallery-img"><h3>متجر إلكتروني متكامل</h3></div>
+    <div class="project" data-aos-delay="200"><span class="project-tag">تطبيق ويب</span><img src="تطبيق ويب تفاعلي.jpeg" class="gallery-img"><h3>تطبيق ويب تفاعلي</h3></div>
+
+    <div class="project" data-aos-delay="300"><span class="project-tag">JavaScript</span>
+      <a href="calculator.html" target="_blank">
+        <img src="https://placehold.co/600x400/00f5ff/000?text=Calculator" class="gallery-img">
+        <h3>آلة حاسبة Calculator</h3>
+      </a>
+    </div>
+    <div class="project" data-aos-delay="400"><span class="project-tag">JavaScript</span>
+      <a href="guess-number.html" target="_blank">
+        <img src="https://placehold.co/600x400/a855f7/fff?text=Guess+Game" class="gallery-img">
+        <h3>لعبة تخمين الرقم</h3>
+      </a>
+    </div>
+    <div class="project" data-aos-delay="500"><span class="project-tag">JavaScript</span>
+      <a href="todo.html" target="_blank">
+        <img src="https://placehold.co/600x400/ff00ff/fff?text=ToDo+List" class="gallery-img">
+        <h3>قائمة المهام ToDo</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="clients" data-aos="fade-up">
+  <h2>عملائي</h2>
+  <div class="gallery">
+    <div class="project"><span class="project-tag">موقع مطعم</span><img src="https://placehold.co/600x400/FF6B35/fff?text=Restaurant+Website" class="gallery-img"><h3>موقع إلكتروني لمطعم</h3></div>
+    <div class="project"><span class="project-tag">منصة تعليمية</span><img src="https://placehold.co/600x400/4ECDC4/fff?text=E-Learning+Platform" class="gallery-img"><h3>منصة تعليم عن بعد</h3></div>
+  </div>
+</section>
+
+<section id="testimonials" data-aos="fade-up">
+  <h2>آراء العملاء</h2>
+  <div class="testi-grid">
+    <div class="testi-card"><p>"الموقع وااعر بزاف! الخدمة متقونة وفي الوقت"</p><b>- أحمد، صاحب مطعم</b></div>
+    <div class="testi-card"><p>"تعامل محترف ونتيجة كتخلع. أنصح به"</p><b>- فاطمة، صاحبة منصة</b></div>
+  </div>
+</section>
+
+<section id="contact" data-aos="fade-up">
+  <h2>خلي سؤالك أو رأيك</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="الاسم ديالك" required>
+    <input type="email" id="email" placeholder="الإيميل ديالك" required>
+    <textarea id="message" rows="5" placeholder="السؤال أو الرأي ديالك" required></textarea>
+    <button type="submit">صيفط فالواتساب</button>
+  </form>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  document.getElementById('contactForm').onsubmit = function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const msg = document.getElementById('message').value;
+    const whatsappMsg = `مرحبا صهيب 👋%0A%0Aالاسم: ${name}%0Aالإيميل: ${email}%0Aالرسالة: ${msg}`;
+    window.open(`https://wa.me/212694313209?text=${whatsappMsg}`, '_blank');
+  }
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.gallery-img').forEach(img=>{
+    img.onclick = () => { lightbox.style.display='flex'; lightboxImg.src=img.src; }
+  })
+  document.querySelector('.close').onclick = () => lightbox.style.display='none';
+
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll',()=>{ if(window.scrollY > 300){toTop.classList.add('show')}else{toTop.classList.remove('show')} })
+  toTop.onclick = ()=>window.scrollTo({top:0,behavior:'smooth'})
+
+  const hamburger = document.getElementById('hamburger');
+  const sidebar = document.getElementById('sidebar');
+  hamburger.onclick = () => { sidebar.classList.toggle('active'); }
+
+  document.getElementById('toggle').onclick = () => {
+    document.body.classList.toggle('dark');
+    document.getElementById('toggle').innerText = document.body.classList.contains('dark') ? '🌙' : '☀️';
+  }
+
+  AOS.init({duration: 1000, once: true});
+  new Typed('#typed', { strings: ['مطور مواقع الشركات', 'مصمم متاجر إلكترونية', 'مبرمج تطبيقات ويب'], typeSpeed: 70, backSpeed: 50, loop: true });
+  particlesJS('particles-js', { particles:{ number:{value:80}, size:{value:3}, move:{speed:2}, line_linked:{enable:true, distance:150, color: "#00f5ff", opacity:0.4} } });
+</script>
+
+</body>
+</html>
